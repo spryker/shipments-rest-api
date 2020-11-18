@@ -20,9 +20,9 @@ class ShipmentDataCheckoutRequestAttributesValidatorPlugin extends AbstractPlugi
     /**
      * {@inheritDoc}
      * - Validates if `RestCheckoutRequestAttributesTransfer` provides shipment data per item or on the top level.
-     * - Passing `RestCheckoutRequestAttributesTransfer.shippingAddress` + `RestCheckoutRequestAttributesTransfer.shipment` is valid.
-     * - Passing `RestCheckoutRequestAttributesTransfer.shipments` is valid.
      * - Mixing the multi-shipment and single-shipment is not valid.
+     * - Expects `RestCheckoutRequestAttributesTransfer.shipment` in case single-shipment to be provided.
+     * - Expects `RestCheckoutRequestAttributesTransfer.shipments` in case multi-shipment to be provided.
      *
      * @api
      *
