@@ -5,3 +5,9 @@ parameters:
         - '#Cannot access offset .+ on .+array.#'
         -
             identifier: missingType.iterableValue
+        -
+            identifier: nullCoalesce.offset
+        -
+            identifier: argument.type
+        -
+            identifier: function.alreadyNarrowedType
