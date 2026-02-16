@@ -27,19 +27,19 @@ class ShipmentQuoteItemMapper implements ShipmentQuoteItemMapperInterface
     protected ShipmentsRestApiToShipmentFacadeInterface $shipmentFacade;
 
     /**
-     * @var list<\Spryker\Zed\ShipmentsRestApiExtension\Dependency\Plugin\AddressProviderStrategyPluginInterface>
+     * @var array<\Spryker\Zed\ShipmentsRestApiExtension\Dependency\Plugin\AddressProviderStrategyPluginInterface>
      */
     protected array $addressProviderStrategyPlugins;
 
     /**
-     * @var list<\Spryker\Zed\ShipmentsRestApiExtension\Dependency\Plugin\QuoteItemExpanderPluginInterface>
+     * @var array<\Spryker\Zed\ShipmentsRestApiExtension\Dependency\Plugin\QuoteItemExpanderPluginInterface>
      */
     protected array $quoteItemExpanderPlugins;
 
     /**
      * @param \Spryker\Zed\ShipmentsRestApi\Dependency\Facade\ShipmentsRestApiToShipmentFacadeInterface $shipmentFacade
-     * @param list<\Spryker\Zed\ShipmentsRestApiExtension\Dependency\Plugin\AddressProviderStrategyPluginInterface> $addressProviderStrategyPlugins
-     * @param list<\Spryker\Zed\ShipmentsRestApiExtension\Dependency\Plugin\QuoteItemExpanderPluginInterface> $quoteItemExpanderPlugins
+     * @param array<\Spryker\Zed\ShipmentsRestApiExtension\Dependency\Plugin\AddressProviderStrategyPluginInterface> $addressProviderStrategyPlugins
+     * @param array<\Spryker\Zed\ShipmentsRestApiExtension\Dependency\Plugin\QuoteItemExpanderPluginInterface> $quoteItemExpanderPlugins
      */
     public function __construct(
         ShipmentsRestApiToShipmentFacadeInterface $shipmentFacade,

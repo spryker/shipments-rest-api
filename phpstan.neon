@@ -6,8 +6,4 @@ parameters:
         -
             identifier: missingType.iterableValue
         -
-            identifier: nullCoalesce.offset
-        -
-            identifier: argument.type
-        -
             identifier: function.alreadyNarrowedType
