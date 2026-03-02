@@ -62,9 +62,6 @@ class MapShipmentsToQuoteTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testMapShipmentsToQuoteAssignsShipmentTransferToQuoteItems(): void
     {
         // Arrange
@@ -100,9 +97,6 @@ class MapShipmentsToQuoteTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testMapShipmentsToQuoteWithEmptyShipments(): void
     {
         // Arrange
@@ -117,9 +111,6 @@ class MapShipmentsToQuoteTest extends Unit
         $this->assertNull($quoteTransfer->getItems()->offsetGet(0)->getShipment());
     }
 
-    /**
-     * @return void
-     */
     public function testMapShipmentsToQuoteWithFakeShipmentMethodId(): void
     {
         // Arrange
@@ -136,9 +127,6 @@ class MapShipmentsToQuoteTest extends Unit
         $this->tester->getFacade()->mapShipmentsToQuote($restCheckoutRequestAttributesTransfer, $quoteTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testMapShipmentsToQuoteWithFakeItemGroupKey(): void
     {
         // Arrange
@@ -155,9 +143,6 @@ class MapShipmentsToQuoteTest extends Unit
         $this->tester->getFacade()->mapShipmentsToQuote($restCheckoutRequestAttributesTransfer, $quoteTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testMapShipmentsToQuoteOverridesItemShipment(): void
     {
         // Arrange
@@ -181,9 +166,6 @@ class MapShipmentsToQuoteTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testExecutesQuoteItemExpanderPlugins(): void
     {
         // Arrange
@@ -214,11 +196,6 @@ class MapShipmentsToQuoteTest extends Unit
         return $this->getMockBuilder(QuoteItemExpanderPluginInterface::class)->getMock();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\RestCheckoutRequestAttributesTransfer
-     */
     protected function buildRestCheckoutRequestAttributes(QuoteTransfer $quoteTransfer): RestCheckoutRequestAttributesTransfer
     {
         $restCheckoutRequestAttributesTransfer = new RestCheckoutRequestAttributesTransfer();

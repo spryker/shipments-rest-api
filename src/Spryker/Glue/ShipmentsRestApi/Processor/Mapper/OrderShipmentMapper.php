@@ -14,12 +14,6 @@ use Generated\Shared\Transfer\ShipmentGroupTransfer;
 
 class OrderShipmentMapper implements OrderShipmentMapperInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\OrderTransfer $orderTransfer
-     * @param \Generated\Shared\Transfer\RestOrderDetailsAttributesTransfer $restOrderDetailsAttributesTransfer
-     *
-     * @return \Generated\Shared\Transfer\RestOrderDetailsAttributesTransfer
-     */
     public function mapOrderTransferToRestOrderDetailsAttributesTransfer(
         OrderTransfer $orderTransfer,
         RestOrderDetailsAttributesTransfer $restOrderDetailsAttributesTransfer
@@ -37,12 +31,6 @@ class OrderShipmentMapper implements OrderShipmentMapperInterface
         return $restOrderDetailsAttributesTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentGroupTransfer $shipmentGroupTransfer
-     * @param \Generated\Shared\Transfer\RestOrderShipmentsAttributesTransfer $restOrderShipmentsAttributesTransfer
-     *
-     * @return \Generated\Shared\Transfer\RestOrderShipmentsAttributesTransfer
-     */
     public function mapShipmentGroupTransferToRestOrderShipmentsAttributesTransfer(
         ShipmentGroupTransfer $shipmentGroupTransfer,
         RestOrderShipmentsAttributesTransfer $restOrderShipmentsAttributesTransfer
@@ -66,12 +54,6 @@ class OrderShipmentMapper implements OrderShipmentMapperInterface
         return $restOrderShipmentsAttributesTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OrderTransfer $orderTransfer
-     * @param \Generated\Shared\Transfer\RestOrderDetailsAttributesTransfer $restOrderDetailsAttributesTransfer
-     *
-     * @return \Generated\Shared\Transfer\RestOrderDetailsAttributesTransfer
-     */
     protected function expandRestOrderDetailsAttributesTransferWithItemShipmentId(
         OrderTransfer $orderTransfer,
         RestOrderDetailsAttributesTransfer $restOrderDetailsAttributesTransfer
@@ -92,12 +74,6 @@ class OrderShipmentMapper implements OrderShipmentMapperInterface
         return $restOrderDetailsAttributesTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OrderTransfer $orderTransfer
-     * @param \Generated\Shared\Transfer\RestOrderDetailsAttributesTransfer $restOrderDetailsAttributesTransfer
-     *
-     * @return \Generated\Shared\Transfer\RestOrderDetailsAttributesTransfer
-     */
     protected function expandRestOrderDetailsAttributesTransferWithExpenseShipmentId(
         OrderTransfer $orderTransfer,
         RestOrderDetailsAttributesTransfer $restOrderDetailsAttributesTransfer

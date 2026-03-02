@@ -12,12 +12,6 @@ use Generated\Shared\Transfer\RestCheckoutRequestAttributesTransfer;
 
 interface ShipmentQuoteMapperInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     public function mapShipmentToQuote(
         RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer,
         QuoteTransfer $quoteTransfer

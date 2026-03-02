@@ -12,11 +12,6 @@ use Generated\Shared\Transfer\RestErrorCollectionTransfer;
 
 interface AddressSourceCheckoutDataValidatorInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer
-     *
-     * @return \Generated\Shared\Transfer\RestErrorCollectionTransfer
-     */
     public function validateAttributes(
         RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer
     ): RestErrorCollectionTransfer;

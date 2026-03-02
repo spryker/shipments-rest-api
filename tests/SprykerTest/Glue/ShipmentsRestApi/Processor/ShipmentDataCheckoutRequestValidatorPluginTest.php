@@ -60,9 +60,6 @@ class ShipmentDataCheckoutRequestValidatorPluginTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testValidateExecutesShippingAddressValidationStrategyPluginsWhenPluginsExecutionIsConfigured(): void
     {
         // Arrange
@@ -89,9 +86,6 @@ class ShipmentDataCheckoutRequestValidatorPluginTest extends Unit
             ->validateAttributes($restCheckoutRequestAttributesTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testValidateDoesNotExecutesShippingAddressValidationStrategyPluginsWhenPluginsExecutionIsNotConfigured(): void
     {
         // Arrange

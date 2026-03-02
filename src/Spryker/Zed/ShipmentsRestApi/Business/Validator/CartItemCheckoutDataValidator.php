@@ -24,11 +24,6 @@ class CartItemCheckoutDataValidator implements CartItemCheckoutDataValidatorInte
      */
     protected const GLOSSARY_KEY_ITEM_NO_SHIPMENT_SELECTED = 'checkout.validation.item.no_shipment_selected';
 
-    /**
-     * @param \Generated\Shared\Transfer\CheckoutDataTransfer $checkoutDataTransfer
-     *
-     * @return \Generated\Shared\Transfer\CheckoutResponseTransfer
-     */
     public function validateItemsShipment(CheckoutDataTransfer $checkoutDataTransfer): CheckoutResponseTransfer
     {
         $checkoutResponseTransfer = (new CheckoutResponseTransfer())->setIsSuccess(true);

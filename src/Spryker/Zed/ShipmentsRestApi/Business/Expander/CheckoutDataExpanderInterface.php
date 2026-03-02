@@ -12,12 +12,6 @@ use Generated\Shared\Transfer\RestCheckoutRequestAttributesTransfer;
 
 interface CheckoutDataExpanderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\RestCheckoutDataTransfer $restCheckoutDataTransfer
-     * @param \Generated\Shared\Transfer\RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer
-     *
-     * @return \Generated\Shared\Transfer\RestCheckoutDataTransfer
-     */
     public function expandCheckoutDataWithAvailableShipmentMethods(
         RestCheckoutDataTransfer $restCheckoutDataTransfer,
         RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer

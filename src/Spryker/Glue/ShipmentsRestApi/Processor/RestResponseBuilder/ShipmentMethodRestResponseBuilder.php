@@ -19,20 +19,11 @@ class ShipmentMethodRestResponseBuilder implements ShipmentMethodRestResponseBui
      */
     protected $restResourceBuilder;
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResourceBuilderInterface $restResourceBuilder
-     */
     public function __construct(RestResourceBuilderInterface $restResourceBuilder)
     {
         $this->restResourceBuilder = $restResourceBuilder;
     }
 
-    /**
-     * @param string $idShipmentMethod
-     * @param \Generated\Shared\Transfer\RestShipmentMethodsAttributesTransfer $restShipmentMethodsAttributesTransfer
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResourceInterface
-     */
     public function createShipmentMethodRestResource(
         string $idShipmentMethod,
         RestShipmentMethodsAttributesTransfer $restShipmentMethodsAttributesTransfer

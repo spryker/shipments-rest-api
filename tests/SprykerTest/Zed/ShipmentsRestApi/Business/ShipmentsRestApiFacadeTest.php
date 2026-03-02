@@ -34,9 +34,6 @@ class ShipmentsRestApiFacadeTest extends Unit
      */
     protected ShipmentsRestApiBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testShipmentsRestApiFacadeWillMapShipmentToQuoteOnShipmentProvided(): void
     {
         // Arrange
@@ -55,9 +52,6 @@ class ShipmentsRestApiFacadeTest extends Unit
         $this->tester->assertSameShipmentMethod($actualQuote->getShipment()->getMethod());
     }
 
-    /**
-     * @return void
-     */
     public function testShipmentsRestApiFacadeWillMapShipmentToQuoteAndRewriteExistingQuoteShipmentExpense(): void
     {
         // Arrange
@@ -80,9 +74,6 @@ class ShipmentsRestApiFacadeTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testShipmentsRestApiFacadeWillMapShipmentToQuoteOnShipmentProvidedWithItemLevelShippingAddresses(): void
     {
         // Arrange
@@ -103,9 +94,6 @@ class ShipmentsRestApiFacadeTest extends Unit
         }
     }
 
-    /**
-     * @return void
-     */
     public function testShipmentsRestApiFacadeWillMapShipmentToQuoteOnNoShipmentProvided(): void
     {
         // Arrange
@@ -123,9 +111,6 @@ class ShipmentsRestApiFacadeTest extends Unit
         $this->assertCount(0, $actualQuote->getExpenses());
     }
 
-    /**
-     * @return void
-     */
     public function testShipmentsRestApiFacadeWillMapShipmentToQuoteOnNoShipmentProvidedWithItemLevelShippingAddresses(): void
     {
         // Arrange
@@ -146,9 +131,6 @@ class ShipmentsRestApiFacadeTest extends Unit
         $this->assertCount(0, $actualQuote->getExpenses());
     }
 
-    /**
-     * @return void
-     */
     public function testShipmentsRestApiFacadeWillMapShipmentToQuoteOnShipmentNotFound(): void
     {
         // Arrange
@@ -166,9 +148,6 @@ class ShipmentsRestApiFacadeTest extends Unit
         $this->assertCount(0, $actualQuote->getExpenses());
     }
 
-    /**
-     * @return void
-     */
     public function testShipmentsRestApiFacadeWillMapShipmentToQuoteOnShipmentNotFoundWithItemLevelShippingAddresses(): void
     {
         // Arrange
@@ -189,9 +168,6 @@ class ShipmentsRestApiFacadeTest extends Unit
         $this->assertCount(0, $actualQuote->getExpenses());
     }
 
-    /**
-     * @return void
-     */
     public function testShipmentsRestApiFacadeWillValidateShipmentMethodCheckoutData(): void
     {
         // Arrange
@@ -208,9 +184,6 @@ class ShipmentsRestApiFacadeTest extends Unit
         $this->assertSame(0, $checkoutResponseTransfer->getErrors()->count());
     }
 
-    /**
-     * @return void
-     */
     public function testShipmentsRestApiFacadeWillValidateShipmentMethodCheckoutDataWithInvalidShipmentMethodId(): void
     {
         // Arrange
@@ -227,9 +200,6 @@ class ShipmentsRestApiFacadeTest extends Unit
         $this->assertGreaterThan(0, $checkoutResponseTransfer->getErrors()->count());
     }
 
-    /**
-     * @return void
-     */
     public function testShipmentsRestApiFacadeWillValidateShipmentMethodCheckoutDataWithoutShipmentMethod(): void
     {
         // Arrange

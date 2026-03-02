@@ -36,11 +36,6 @@ class ShipmentCheckoutDataValidator implements ShipmentCheckoutDataValidatorInte
         $this->shippingAddressValidationStrategyPlugins = $shippingAddressValidationStrategyPlugins;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer
-     *
-     * @return \Generated\Shared\Transfer\RestErrorCollectionTransfer
-     */
     public function validateShipmentCheckoutData(
         RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer
     ): RestErrorCollectionTransfer {
@@ -80,11 +75,6 @@ class ShipmentCheckoutDataValidator implements ShipmentCheckoutDataValidatorInte
         return $restErrorCollectionTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer
-     *
-     * @return bool
-     */
     protected function isShipmentLevelMixed(RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer): bool
     {
         if (
@@ -117,11 +107,6 @@ class ShipmentCheckoutDataValidator implements ShipmentCheckoutDataValidatorInte
         return true;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer
-     *
-     * @return bool
-     */
     protected function isMultiShipmentLevelValid(RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer): bool
     {
         if ($restCheckoutRequestAttributesTransfer->getShipment() || $restCheckoutRequestAttributesTransfer->getShippingAddress()) {
@@ -141,13 +126,6 @@ class ShipmentCheckoutDataValidator implements ShipmentCheckoutDataValidatorInte
         return true;
     }
 
-    /**
-     * @param string $detail
-     * @param string $code
-     * @param int|null $status
-     *
-     * @return \Generated\Shared\Transfer\RestErrorMessageTransfer
-     */
     protected function buildErrorMessage(
         string $detail,
         string $code,
@@ -159,11 +137,6 @@ class ShipmentCheckoutDataValidator implements ShipmentCheckoutDataValidatorInte
             ->setStatus($status);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer
-     *
-     * @return \Spryker\Glue\ShipmentsRestApiExtension\Dependency\Plugin\ShippingAddressValidationStrategyPluginInterface|null
-     */
     protected function findShippingAddressValidationStrategyPlugin(
         RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer
     ): ?ShippingAddressValidationStrategyPluginInterface {

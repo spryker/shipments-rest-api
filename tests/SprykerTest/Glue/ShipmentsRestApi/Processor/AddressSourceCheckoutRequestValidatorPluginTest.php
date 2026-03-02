@@ -32,9 +32,6 @@ class AddressSourceCheckoutRequestValidatorPluginTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testAddressSourceCheckoutRequestAttributesValidatorPluginTestWillCallAddressSourceValidatorPlugins(): void
     {
         // Arrange

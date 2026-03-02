@@ -61,11 +61,6 @@ class ShipmentsByCheckoutDataResourceRelationshipPlugin extends AbstractPlugin i
         return ShipmentsRestApiConfig::RESOURCE_SHIPMENTS;
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     *
-     * @return bool
-     */
     protected function isSingleShipmentRequest(RestRequestInterface $restRequest): bool
     {
         $restCheckoutRequestAttributesTransfer = $restRequest->getResource()->getAttributes();

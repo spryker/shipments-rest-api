@@ -26,10 +26,6 @@ class OrderShipmentRestResponseBuilder implements OrderShipmentRestResponseBuild
      */
     protected $restResourceBuilder;
 
-    /**
-     * @param \Spryker\Glue\ShipmentsRestApi\Processor\Mapper\OrderShipmentMapperInterface $orderShipmentMapper
-     * @param \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResourceBuilderInterface $restResourceBuilder
-     */
     public function __construct(
         OrderShipmentMapperInterface $orderShipmentMapper,
         RestResourceBuilderInterface $restResourceBuilder
@@ -38,11 +34,6 @@ class OrderShipmentRestResponseBuilder implements OrderShipmentRestResponseBuild
         $this->restResourceBuilder = $restResourceBuilder;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentGroupTransfer $shipmentGroupTransfer
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResourceInterface
-     */
     public function createOrderShipmentRestResource(ShipmentGroupTransfer $shipmentGroupTransfer): RestResourceInterface
     {
         $restOrderShipmentsAttributesTransfer = $this->orderShipmentMapper

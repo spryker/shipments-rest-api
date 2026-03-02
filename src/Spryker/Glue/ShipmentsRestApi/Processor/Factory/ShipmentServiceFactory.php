@@ -13,9 +13,6 @@ use Spryker\Glue\ShipmentsRestApi\ShipmentsRestApiDependencyProvider;
 
 class ShipmentServiceFactory extends AbstractFactory implements ShipmentServiceFactoryInterface
 {
-    /**
-     * @return \Spryker\Glue\ShipmentsRestApi\Dependency\Service\ShipmentsRestApiToShipmentServiceInterface
-     */
     public function getShipmentService(): ShipmentsRestApiToShipmentServiceInterface
     {
         return $this->getProvidedDependency(ShipmentsRestApiDependencyProvider::SERVICE_SHIPMENT);

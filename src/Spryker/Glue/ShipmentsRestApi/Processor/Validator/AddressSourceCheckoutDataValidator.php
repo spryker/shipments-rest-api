@@ -29,11 +29,6 @@ class AddressSourceCheckoutDataValidator implements AddressSourceCheckoutDataVal
         $this->addressSourceCheckerPlugins = $addressSourceCheckerPlugins;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer
-     *
-     * @return \Generated\Shared\Transfer\RestErrorCollectionTransfer
-     */
     public function validateAttributes(
         RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer
     ): RestErrorCollectionTransfer {
@@ -63,11 +58,6 @@ class AddressSourceCheckoutDataValidator implements AddressSourceCheckoutDataVal
         return $restErrorCollectionTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RestAddressTransfer $restAddressTransfer
-     *
-     * @return bool
-     */
     protected function executeAddressSourceCheckerPlugins(RestAddressTransfer $restAddressTransfer): bool
     {
         foreach ($this->addressSourceCheckerPlugins as $addressSourceProviderPlugin) {
@@ -79,11 +69,6 @@ class AddressSourceCheckoutDataValidator implements AddressSourceCheckoutDataVal
         return false;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RestAddressTransfer $restAddressTransfer
-     *
-     * @return bool
-     */
     protected function validateAddressAttributes(RestAddressTransfer $restAddressTransfer): bool
     {
         return $restAddressTransfer->getAddress1()

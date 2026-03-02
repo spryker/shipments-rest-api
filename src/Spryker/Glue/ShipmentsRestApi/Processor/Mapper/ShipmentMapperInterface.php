@@ -12,12 +12,6 @@ use Generated\Shared\Transfer\ShipmentGroupTransfer;
 
 interface ShipmentMapperInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentGroupTransfer $shipmentGroupTransfer
-     * @param \Generated\Shared\Transfer\RestShipmentsAttributesTransfer $restShipmentsAttributesTransfer
-     *
-     * @return \Generated\Shared\Transfer\RestShipmentsAttributesTransfer
-     */
     public function mapShipmentGroupTransferToRestShipmentsAttributesTransfers(
         ShipmentGroupTransfer $shipmentGroupTransfer,
         RestShipmentsAttributesTransfer $restShipmentsAttributesTransfer

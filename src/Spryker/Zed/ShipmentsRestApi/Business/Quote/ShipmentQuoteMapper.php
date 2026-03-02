@@ -46,12 +46,6 @@ class ShipmentQuoteMapper implements ShipmentQuoteMapperInterface
         $this->quoteItemExpanderPlugins = $quoteItemExpanderPlugins;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     public function mapShipmentToQuote(
         RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer,
         QuoteTransfer $quoteTransfer
@@ -84,11 +78,6 @@ class ShipmentQuoteMapper implements ShipmentQuoteMapperInterface
         return $this->setShipmentExpense($quoteTransfer, $expenseTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     protected function executeQuoteItemExpanderPlugins(QuoteTransfer $quoteTransfer): QuoteTransfer
     {
         foreach ($this->quoteItemExpanderPlugins as $quoteShipmentExpanderPlugin) {
@@ -98,12 +87,6 @@ class ShipmentQuoteMapper implements ShipmentQuoteMapperInterface
         return $quoteTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentTransfer $shipmentTransfer
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\ExpenseTransfer
-     */
     protected function createShippingExpenseTransfer(ShipmentTransfer $shipmentTransfer, QuoteTransfer $quoteTransfer): ExpenseTransfer
     {
         $shipmentExpenseTransfer = new ExpenseTransfer();
@@ -122,12 +105,6 @@ class ShipmentQuoteMapper implements ShipmentQuoteMapperInterface
             ->setUnitGrossPrice($shipmentTransfer->getMethod()->getStoreCurrencyPrice());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Generated\Shared\Transfer\ShipmentTransfer $shipmentTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     protected function setShipmentTransferIntoQuote(QuoteTransfer $quoteTransfer, ShipmentTransfer $shipmentTransfer): QuoteTransfer
     {
         $quoteTransfer->setShipment($shipmentTransfer);
@@ -138,11 +115,6 @@ class ShipmentQuoteMapper implements ShipmentQuoteMapperInterface
         return $quoteTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     protected function removeShipmentTransferFromQuote(QuoteTransfer $quoteTransfer): QuoteTransfer
     {
         $quoteTransfer->setShipment(null);
@@ -153,12 +125,6 @@ class ShipmentQuoteMapper implements ShipmentQuoteMapperInterface
         return $quoteTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Generated\Shared\Transfer\ExpenseTransfer $expenseTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     protected function setShipmentExpense(QuoteTransfer $quoteTransfer, ExpenseTransfer $expenseTransfer): QuoteTransfer
     {
         foreach ($quoteTransfer->getExpenses() as $expenseKey => $quoteExpenseTransfer) {
@@ -174,11 +140,6 @@ class ShipmentQuoteMapper implements ShipmentQuoteMapperInterface
         return $quoteTransfer;
     }
 
-    /**
-     * @param int $idShipmentMethod
-     *
-     * @return \Generated\Shared\Transfer\ShipmentTransfer
-     */
     protected function createShipmentTransfer(int $idShipmentMethod): ShipmentTransfer
     {
         $shipmentMethodTransfer = (new ShipmentMethodTransfer())->setIdShipmentMethod($idShipmentMethod);

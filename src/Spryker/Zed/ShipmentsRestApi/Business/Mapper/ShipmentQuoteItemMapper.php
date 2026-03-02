@@ -51,12 +51,6 @@ class ShipmentQuoteItemMapper implements ShipmentQuoteItemMapperInterface
         $this->quoteItemExpanderPlugins = $quoteItemExpanderPlugins;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     public function mapShipmentsToQuote(
         RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer,
         QuoteTransfer $quoteTransfer
@@ -102,11 +96,6 @@ class ShipmentQuoteItemMapper implements ShipmentQuoteItemMapperInterface
         return $quoteTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     protected function executeQuoteItemExpanderPlugins(QuoteTransfer $quoteTransfer): QuoteTransfer
     {
         foreach ($this->quoteItemExpanderPlugins as $quoteShipmentExpanderPlugin) {
@@ -203,12 +192,6 @@ class ShipmentQuoteItemMapper implements ShipmentQuoteItemMapperInterface
         }
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     * @param \Generated\Shared\Transfer\ShipmentTransfer $shipmentTransfer
-     *
-     * @return void
-     */
     protected function updateItemShipment(ItemTransfer $itemTransfer, ShipmentTransfer $shipmentTransfer): void
     {
         if (!$itemTransfer->getShipment()) {
@@ -238,13 +221,6 @@ class ShipmentQuoteItemMapper implements ShipmentQuoteItemMapperInterface
         return $mappedBundledItems;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RestShipmentsTransfer $restShipmentsTransfer
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Generated\Shared\Transfer\ShipmentTransfer $shipmentTransfer
-     *
-     * @return \Generated\Shared\Transfer\ShipmentTransfer
-     */
     protected function expandShipmentTransferWithShipmentMethod(
         RestShipmentsTransfer $restShipmentsTransfer,
         QuoteTransfer $quoteTransfer,
@@ -268,13 +244,6 @@ class ShipmentQuoteItemMapper implements ShipmentQuoteItemMapperInterface
             ->setShipmentSelection((string)$shipmentMethodTransfer->getIdShipmentMethod());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RestShipmentsTransfer $restShipmentsTransfer
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Generated\Shared\Transfer\ShipmentTransfer $shipmentTransfer
-     *
-     * @return \Generated\Shared\Transfer\ShipmentTransfer
-     */
     protected function expandShipmentTransferWithShippingAddress(
         RestShipmentsTransfer $restShipmentsTransfer,
         QuoteTransfer $quoteTransfer,
@@ -291,12 +260,6 @@ class ShipmentQuoteItemMapper implements ShipmentQuoteItemMapperInterface
         return $shipmentTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RestAddressTransfer $restAddressTransfer
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\AddressTransfer
-     */
     protected function getAddressTransfer(
         RestAddressTransfer $restAddressTransfer,
         QuoteTransfer $quoteTransfer
@@ -312,11 +275,6 @@ class ShipmentQuoteItemMapper implements ShipmentQuoteItemMapperInterface
         return (new AddressTransfer())->fromArray($restAddressTransfer->toArray(), true);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     protected function setNoShipmentForGiftCards(QuoteTransfer $quoteTransfer): QuoteTransfer
     {
         foreach ($quoteTransfer->getItems() as $itemTransfer) {
@@ -351,11 +309,6 @@ class ShipmentQuoteItemMapper implements ShipmentQuoteItemMapperInterface
         return $quoteTransfer;
     }
 
-    /**
-     * @param int $idShipmentMethod
-     *
-     * @return \Generated\Shared\Transfer\ShipmentTransfer
-     */
     protected function createShipmentTransfer(int $idShipmentMethod): ShipmentTransfer
     {
         $shipmentMethodTransfer = (new ShipmentMethodTransfer())->setIdShipmentMethod($idShipmentMethod);

@@ -25,10 +25,6 @@ class ShipmentsByOrderResourceRelationshipExpander implements ShipmentsByOrderRe
      */
     protected $shipmentServiceFactory;
 
-    /**
-     * @param \Spryker\Glue\ShipmentsRestApi\Processor\RestResponseBuilder\OrderShipmentRestResponseBuilderInterface $orderShipmentRestResponseBuilder
-     * @param \Spryker\Glue\ShipmentsRestApi\Processor\Factory\ShipmentServiceFactoryInterface $shipmentServiceFactory
-     */
     public function __construct(
         OrderShipmentRestResponseBuilderInterface $orderShipmentRestResponseBuilder,
         ShipmentServiceFactoryInterface $shipmentServiceFactory
@@ -55,12 +51,6 @@ class ShipmentsByOrderResourceRelationshipExpander implements ShipmentsByOrderRe
         }
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OrderTransfer $orderTransfer
-     * @param \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResourceInterface $resource
-     *
-     * @return void
-     */
     protected function addOrderShipmentsResourceRelationships(
         OrderTransfer $orderTransfer,
         RestResourceInterface $resource

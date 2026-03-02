@@ -14,23 +14,11 @@ use Generated\Shared\Transfer\ShipmentGroupTransfer;
 
 interface OrderShipmentMapperInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\OrderTransfer $orderTransfer
-     * @param \Generated\Shared\Transfer\RestOrderDetailsAttributesTransfer $restOrderDetailsAttributesTransfer
-     *
-     * @return \Generated\Shared\Transfer\RestOrderDetailsAttributesTransfer
-     */
     public function mapOrderTransferToRestOrderDetailsAttributesTransfer(
         OrderTransfer $orderTransfer,
         RestOrderDetailsAttributesTransfer $restOrderDetailsAttributesTransfer
     ): RestOrderDetailsAttributesTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentGroupTransfer $shipmentGroupTransfer
-     * @param \Generated\Shared\Transfer\RestOrderShipmentsAttributesTransfer $restOrderShipmentsAttributesTransfer
-     *
-     * @return \Generated\Shared\Transfer\RestOrderShipmentsAttributesTransfer
-     */
     public function mapShipmentGroupTransferToRestOrderShipmentsAttributesTransfer(
         ShipmentGroupTransfer $shipmentGroupTransfer,
         RestOrderShipmentsAttributesTransfer $restOrderShipmentsAttributesTransfer

@@ -23,9 +23,6 @@ class QuoteRequestItemExpander implements QuoteRequestItemExpanderInterface
      */
     protected $shipmentService;
 
-    /**
-     * @param \Spryker\Glue\ShipmentsRestApi\Dependency\Service\ShipmentsRestApiToShipmentServiceInterface $shipmentService
-     */
     public function __construct(ShipmentsRestApiToShipmentServiceInterface $shipmentService)
     {
         $this->shipmentService = $shipmentService;
@@ -138,11 +135,6 @@ class QuoteRequestItemExpander implements QuoteRequestItemExpanderInterface
         return $restQuoteRequestShipmentTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return bool
-     */
     protected function shipmentExistsForItems(QuoteTransfer $quoteTransfer): bool
     {
         foreach ($quoteTransfer->getItems() as $itemTransfer) {
@@ -154,12 +146,6 @@ class QuoteRequestItemExpander implements QuoteRequestItemExpanderInterface
         return true;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteRequestTransfer $quoteRequestTransfer
-     * @param \Generated\Shared\Transfer\RestQuoteRequestsAttributesTransfer $restQuoteRequestsAttributesTransfer
-     *
-     * @return bool
-     */
     protected function isQuoteRequestValid(
         QuoteRequestTransfer $quoteRequestTransfer,
         RestQuoteRequestsAttributesTransfer $restQuoteRequestsAttributesTransfer

@@ -19,19 +19,11 @@ class ShipmentMethodCheckoutDataValidator implements ShipmentMethodCheckoutDataV
      */
     protected $shipmentFacade;
 
-    /**
-     * @param \Spryker\Zed\ShipmentsRestApi\Dependency\Facade\ShipmentsRestApiToShipmentFacadeInterface $shipmentFacade
-     */
     public function __construct(ShipmentsRestApiToShipmentFacadeInterface $shipmentFacade)
     {
         $this->shipmentFacade = $shipmentFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CheckoutDataTransfer $checkoutDataTransfer
-     *
-     * @return \Generated\Shared\Transfer\CheckoutResponseTransfer
-     */
     public function validateShipmentMethodCheckoutData(CheckoutDataTransfer $checkoutDataTransfer): CheckoutResponseTransfer
     {
         $checkoutResponseTransfer = (new CheckoutResponseTransfer())->setIsSuccess(true);
@@ -53,12 +45,6 @@ class ShipmentMethodCheckoutDataValidator implements ShipmentMethodCheckoutDataV
         return $checkoutResponseTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CheckoutResponseTransfer $checkoutResponseTransfer
-     * @param string $message
-     *
-     * @return \Generated\Shared\Transfer\CheckoutResponseTransfer
-     */
     protected function addErrorToCheckoutResponseTransfer(
         CheckoutResponseTransfer $checkoutResponseTransfer,
         string $message

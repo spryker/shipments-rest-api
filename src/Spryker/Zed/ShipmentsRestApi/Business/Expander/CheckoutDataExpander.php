@@ -18,20 +18,11 @@ class CheckoutDataExpander implements CheckoutDataExpanderInterface
      */
     protected $shipmentFacade;
 
-    /**
-     * @param \Spryker\Zed\ShipmentsRestApi\Dependency\Facade\ShipmentsRestApiToShipmentFacadeInterface $shipmentFacade
-     */
     public function __construct(ShipmentsRestApiToShipmentFacadeInterface $shipmentFacade)
     {
         $this->shipmentFacade = $shipmentFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RestCheckoutDataTransfer $restCheckoutDataTransfer
-     * @param \Generated\Shared\Transfer\RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer
-     *
-     * @return \Generated\Shared\Transfer\RestCheckoutDataTransfer
-     */
     public function expandCheckoutDataWithAvailableShipmentMethods(
         RestCheckoutDataTransfer $restCheckoutDataTransfer,
         RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer

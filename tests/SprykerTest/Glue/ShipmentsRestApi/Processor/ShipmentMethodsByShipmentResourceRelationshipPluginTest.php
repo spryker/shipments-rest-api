@@ -53,9 +53,6 @@ class ShipmentMethodsByShipmentResourceRelationshipPluginTest extends Unit
      */
     protected ShipmentsRestApiProcessorTester $tester;
 
-    /**
-     * @return void
-     */
     public function _before(): void
     {
         parent::_before();
@@ -63,9 +60,6 @@ class ShipmentMethodsByShipmentResourceRelationshipPluginTest extends Unit
         $this->tester->getContainer()->set(static::SERVICE_RESOURCE_BUILDER, new RestResourceBuilder());
     }
 
-    /**
-     * @return void
-     */
     public function testAddResourceRelationshipsShouldAddResourcesWithPayload(): void
     {
         // Arrange

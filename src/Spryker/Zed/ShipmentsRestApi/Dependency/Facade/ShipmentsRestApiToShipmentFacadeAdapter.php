@@ -46,11 +46,6 @@ class ShipmentsRestApiToShipmentFacadeAdapter implements ShipmentsRestApiToShipm
         return $this->shipmentFacade->findMethodById($idShipmentMethod);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\ShipmentMethodsCollectionTransfer
-     */
     public function getAvailableMethodsByShipment(QuoteTransfer $quoteTransfer): ShipmentMethodsCollectionTransfer
     {
         //Added for BC reason
@@ -61,11 +56,6 @@ class ShipmentsRestApiToShipmentFacadeAdapter implements ShipmentsRestApiToShipm
         return $this->shipmentFacade->getAvailableMethodsByShipment($quoteTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     public function expandQuoteWithShipmentGroups(QuoteTransfer $quoteTransfer): QuoteTransfer
     {
         //Added for BC reason

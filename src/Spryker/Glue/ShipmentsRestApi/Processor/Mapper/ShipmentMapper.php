@@ -28,12 +28,6 @@ class ShipmentMapper implements ShipmentMapperInterface
         $this->restAddressResponseMapperPlugins = $restAddressResponseMapperPlugins;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentGroupTransfer $shipmentGroupTransfer
-     * @param \Generated\Shared\Transfer\RestShipmentsAttributesTransfer $restShipmentsAttributesTransfer
-     *
-     * @return \Generated\Shared\Transfer\RestShipmentsAttributesTransfer
-     */
     public function mapShipmentGroupTransferToRestShipmentsAttributesTransfers(
         ShipmentGroupTransfer $shipmentGroupTransfer,
         RestShipmentsAttributesTransfer $restShipmentsAttributesTransfer
@@ -62,11 +56,6 @@ class ShipmentMapper implements ShipmentMapperInterface
         return $groupKeys;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentGroupTransfer $shipmentGroupTransfer
-     *
-     * @return \Generated\Shared\Transfer\RestAddressTransfer
-     */
     protected function createRestAddressTransfer(ShipmentGroupTransfer $shipmentGroupTransfer): RestAddressTransfer
     {
         $addressTransfer = $shipmentGroupTransfer->getShipment()->getShippingAddress();
@@ -81,11 +70,6 @@ class ShipmentMapper implements ShipmentMapperInterface
         return $this->executeRestAddressResponseMapperPlugins($addressTransfer, $restAddressTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentGroupTransfer $shipmentGroupTransfer
-     *
-     * @return \Generated\Shared\Transfer\RestShipmentMethodTransfer
-     */
     protected function createRestShipmentMethodTransfer(
         ShipmentGroupTransfer $shipmentGroupTransfer
     ): RestShipmentMethodTransfer {
@@ -100,12 +84,6 @@ class ShipmentMapper implements ShipmentMapperInterface
             ->setId($shipmentMethodTransfer->getIdShipmentMethod());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AddressTransfer $addressTransfer
-     * @param \Generated\Shared\Transfer\RestAddressTransfer $restAddressTransfer
-     *
-     * @return \Generated\Shared\Transfer\RestAddressTransfer
-     */
     protected function executeRestAddressResponseMapperPlugins(
         AddressTransfer $addressTransfer,
         RestAddressTransfer $restAddressTransfer

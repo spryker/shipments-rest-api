@@ -39,9 +39,6 @@ class ValidateItemsShipmentTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testValidateItemsShipmentWillNotReturnErrorIfNoShipmentDataIsProvided(): void
     {
         // Arrange
@@ -54,9 +51,6 @@ class ValidateItemsShipmentTest extends Unit
         $this->assertTrue($checkoutResponseTransfer->getIsSuccess());
     }
 
-    /**
-     * @return void
-     */
     public function testValidateItemsShipmentWillNotReturnErrorIfValidShipmentDataPerItemIsProvided(): void
     {
         // Arrange
@@ -75,9 +69,6 @@ class ValidateItemsShipmentTest extends Unit
         $this->assertTrue($checkoutResponseTransfer->getIsSuccess());
     }
 
-    /**
-     * @return void
-     */
     public function testValidateItemsShipmentWillNotReturnErrorIfValidShipmentDataPerBundleItemIsProvided(): void
     {
         // Arrange
@@ -96,9 +87,6 @@ class ValidateItemsShipmentTest extends Unit
         $this->assertTrue($checkoutResponseTransfer->getIsSuccess());
     }
 
-    /**
-     * @return void
-     */
     public function testValidateItemsShipmentWillReturnErrorIfInvalidShipmentDataPerItemIsProvided(): void
     {
         // Arrange
@@ -125,9 +113,6 @@ class ValidateItemsShipmentTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testValidateItemsShipmentWillReturnErrorIfInvalidShipmentDataPerItemBundleIsProvided(): void
     {
         // Arrange
@@ -154,9 +139,6 @@ class ValidateItemsShipmentTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testValidateItemsShipmentWillThrowExceptionIfQuoteIsNotProvided(): void
     {
         // Arrange

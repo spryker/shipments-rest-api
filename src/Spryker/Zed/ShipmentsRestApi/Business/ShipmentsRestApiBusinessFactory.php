@@ -26,17 +26,11 @@ use Spryker\Zed\ShipmentsRestApi\ShipmentsRestApiDependencyProvider;
  */
 class ShipmentsRestApiBusinessFactory extends AbstractBusinessFactory
 {
-    /**
-     * @return \Spryker\Zed\ShipmentsRestApi\Business\Expander\CheckoutDataExpanderInterface
-     */
     public function createCheckoutDataExpander(): CheckoutDataExpanderInterface
     {
         return new CheckoutDataExpander($this->getShipmentFacade());
     }
 
-    /**
-     * @return \Spryker\Zed\ShipmentsRestApi\Business\Quote\ShipmentQuoteMapperInterface
-     */
     public function createShipmentQuoteMapper(): ShipmentQuoteMapperInterface
     {
         return new ShipmentQuoteMapper(
@@ -45,9 +39,6 @@ class ShipmentsRestApiBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ShipmentsRestApi\Business\Mapper\ShipmentQuoteItemMapperInterface
-     */
     public function createShipmentQuoteItemMapper(): ShipmentQuoteItemMapperInterface
     {
         return new ShipmentQuoteItemMapper(
@@ -57,25 +48,16 @@ class ShipmentsRestApiBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ShipmentsRestApi\Business\Validator\CartItemCheckoutDataValidatorInterface
-     */
     public function createCartItemCheckoutDataValidator(): CartItemCheckoutDataValidatorInterface
     {
         return new CartItemCheckoutDataValidator();
     }
 
-    /**
-     * @return \Spryker\Zed\ShipmentsRestApi\Business\Validator\ShipmentMethodCheckoutDataValidatorInterface
-     */
     public function createShipmentMethodCheckoutDataValidator(): ShipmentMethodCheckoutDataValidatorInterface
     {
         return new ShipmentMethodCheckoutDataValidator($this->getShipmentFacade());
     }
 
-    /**
-     * @return \Spryker\Zed\ShipmentsRestApi\Dependency\Facade\ShipmentsRestApiToShipmentFacadeInterface
-     */
     public function getShipmentFacade(): ShipmentsRestApiToShipmentFacadeInterface
     {
         return $this->getProvidedDependency(ShipmentsRestApiDependencyProvider::FACADE_SHIPMENT);

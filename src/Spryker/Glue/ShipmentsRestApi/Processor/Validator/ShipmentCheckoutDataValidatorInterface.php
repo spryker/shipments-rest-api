@@ -12,11 +12,6 @@ use Generated\Shared\Transfer\RestErrorCollectionTransfer;
 
 interface ShipmentCheckoutDataValidatorInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer
-     *
-     * @return \Generated\Shared\Transfer\RestErrorCollectionTransfer
-     */
     public function validateShipmentCheckoutData(
         RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer
     ): RestErrorCollectionTransfer;

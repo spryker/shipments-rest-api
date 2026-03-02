@@ -31,11 +31,6 @@ class ShipmentsRestApiDependencyProvider extends AbstractBundleDependencyProvide
      */
     public const PLUGINS_QUOTE_ITEM_EXPANDER = 'PLUGINS_QUOTE_ITEM_EXPANDER';
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function provideBusinessLayerDependencies(Container $container): Container
     {
         $container = parent::provideBusinessLayerDependencies($container);
@@ -46,11 +41,6 @@ class ShipmentsRestApiDependencyProvider extends AbstractBundleDependencyProvide
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addShipmentFacade(Container $container): Container
     {
         $container->set(static::FACADE_SHIPMENT, function (Container $container) {
@@ -60,11 +50,6 @@ class ShipmentsRestApiDependencyProvider extends AbstractBundleDependencyProvide
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addAddressProviderStrategyPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_ADDRESS_PROVIDER_STRATEGY, function () {
@@ -74,11 +59,6 @@ class ShipmentsRestApiDependencyProvider extends AbstractBundleDependencyProvide
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addQuoteItemExpanderPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_QUOTE_ITEM_EXPANDER, function () {

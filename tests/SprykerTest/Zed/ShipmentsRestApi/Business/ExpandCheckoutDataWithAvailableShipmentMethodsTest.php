@@ -45,9 +45,6 @@ class ExpandCheckoutDataWithAvailableShipmentMethodsTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testExpandCheckoutDataWithAvailableShipmentMethods(): void
     {
         // Arrange
@@ -63,9 +60,6 @@ class ExpandCheckoutDataWithAvailableShipmentMethodsTest extends Unit
         $this->assertCount(3, $restCheckoutDataTransfer->getAvailableShipmentMethods()->getShipmentMethods());
     }
 
-    /**
-     * @return void
-     */
     public function testExpandCheckoutDataWithAvailableShipmentMethodsWithoutQuote(): void
     {
         // Arrange
@@ -82,9 +76,6 @@ class ExpandCheckoutDataWithAvailableShipmentMethodsTest extends Unit
         $this->assertNull($restCheckoutDataTransfer->getAvailableShipmentMethods());
     }
 
-    /**
-     * @return void
-     */
     public function testExpandCheckoutDataWithAvailableShipmentMethodsWhenAvailableMethodsNotFound(): void
     {
         // Arrange
@@ -110,9 +101,6 @@ class ExpandCheckoutDataWithAvailableShipmentMethodsTest extends Unit
         $this->assertEmpty($restCheckoutDataTransfer->getAvailableShipmentMethods()->getShipmentMethods());
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\RestCheckoutDataTransfer
-     */
     protected function buildRestCheckoutData(): RestCheckoutDataTransfer
     {
         $quoteTransfer = $this->tester->buildQuote();

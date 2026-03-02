@@ -11,8 +11,5 @@ use Spryker\Glue\ShipmentsRestApi\Dependency\Service\ShipmentsRestApiToShipmentS
 
 interface ShipmentServiceFactoryInterface
 {
-    /**
-     * @return \Spryker\Glue\ShipmentsRestApi\Dependency\Service\ShipmentsRestApiToShipmentServiceInterface
-     */
     public function getShipmentService(): ShipmentsRestApiToShipmentServiceInterface;
 }

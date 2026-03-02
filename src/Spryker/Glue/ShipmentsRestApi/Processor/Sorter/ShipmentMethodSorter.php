@@ -56,13 +56,6 @@ class ShipmentMethodSorter implements ShipmentMethodSorterInterface
         return $restShipmentMethodAttributeTransfers;
     }
 
-    /**
-     * @param string|null $currentSortedPropertyValue
-     * @param string|null $nextSortedPropertyValue
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\SortInterface $currentSort
-     *
-     * @return int
-     */
     protected function compareValues(?string $currentSortedPropertyValue, ?string $nextSortedPropertyValue, SortInterface $currentSort): int
     {
         $isDescending = $currentSort->getDirection() === SortInterface::SORT_DESC;
@@ -71,12 +64,6 @@ class ShipmentMethodSorter implements ShipmentMethodSorterInterface
         return $isCurrentValueLessThanNextValue === $isDescending ? 1 : -1;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RestShipmentMethodsAttributesTransfer $restShipmentMethodAttributeTransfer
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\SortInterface $currentSort
-     *
-     * @return string|null
-     */
     protected function getPropertyValueBySort(RestShipmentMethodsAttributesTransfer $restShipmentMethodAttributeTransfer, SortInterface $currentSort): ?string
     {
         $resourceValue = $this->getSortResourceValue($currentSort);
@@ -98,21 +85,11 @@ class ShipmentMethodSorter implements ShipmentMethodSorterInterface
         });
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\SortInterface $sort
-     *
-     * @return string|null
-     */
     protected function getSortResourceName(SortInterface $sort): ?string
     {
         return explode(static::SORT_VALUE_DELIMITER, $sort->getField())[0];
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\SortInterface $sort
-     *
-     * @return string|null
-     */
     protected function getSortResourceValue(SortInterface $sort): ?string
     {
         return explode(static::SORT_VALUE_DELIMITER, $sort->getField())[1] ?? null;

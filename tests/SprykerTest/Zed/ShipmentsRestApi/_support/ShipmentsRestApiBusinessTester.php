@@ -72,9 +72,6 @@ class ShipmentsRestApiBusinessTester extends Actor
         ShipmentMethodTransfer::IS_ACTIVE => true,
     ];
 
-    /**
-     * @return \Generated\Shared\Transfer\RestCheckoutRequestAttributesTransfer
-     */
     public function prepareRestCheckoutRequestAttributesTransferWithoutShipment(): RestCheckoutRequestAttributesTransfer
     {
         /** @var \Generated\Shared\Transfer\RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer */
@@ -83,9 +80,6 @@ class ShipmentsRestApiBusinessTester extends Actor
         return $restCheckoutRequestAttributesTransfer;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\RestCheckoutRequestAttributesTransfer
-     */
     public function prepareRestCheckoutRequestAttributesTransferWithShipment(): RestCheckoutRequestAttributesTransfer
     {
         /** @var \Generated\Shared\Transfer\RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer */
@@ -98,9 +92,6 @@ class ShipmentsRestApiBusinessTester extends Actor
         return $restCheckoutRequestAttributesTransfer;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\RestCheckoutRequestAttributesTransfer
-     */
     public function prepareRestCheckoutRequestAttributesTransferWithItemLevelShipment(): RestCheckoutRequestAttributesTransfer
     {
         /** @var \Generated\Shared\Transfer\RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer */
@@ -111,9 +102,6 @@ class ShipmentsRestApiBusinessTester extends Actor
         return $restCheckoutRequestAttributesTransfer;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\CheckoutDataTransfer
-     */
     public function prepareCheckoutDataTransferWithShipmentMethodId(): CheckoutDataTransfer
     {
         /** @var \Generated\Shared\Transfer\CheckoutDataTransfer $checkoutDataTransfer */
@@ -126,9 +114,6 @@ class ShipmentsRestApiBusinessTester extends Actor
         return $checkoutDataTransfer;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\CheckoutDataTransfer
-     */
     public function prepareCheckoutDataTransferWithInvalidShipmentMethodId(): CheckoutDataTransfer
     {
         /** @var \Generated\Shared\Transfer\CheckoutDataTransfer $checkoutDataTransfer */
@@ -138,9 +123,6 @@ class ShipmentsRestApiBusinessTester extends Actor
         return $checkoutDataTransfer;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\CheckoutDataTransfer
-     */
     public function prepareCheckoutDataTransferWithoutShipment(): CheckoutDataTransfer
     {
         /** @var \Generated\Shared\Transfer\CheckoutDataTransfer $checkoutDataTransfer */
@@ -150,9 +132,6 @@ class ShipmentsRestApiBusinessTester extends Actor
         return $checkoutDataTransfer;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     public function prepareQuoteTransfer(): QuoteTransfer
     {
         /** @var \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer */
@@ -161,17 +140,11 @@ class ShipmentsRestApiBusinessTester extends Actor
         return $quoteTransfer;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\ExpenseTransfer
-     */
     public function createShipmentExpenseTransfer(): ExpenseTransfer
     {
         return (new ExpenseBuilder([ExpenseTransfer::TYPE => ShipmentsRestApiConfig::SHIPMENT_EXPENSE_TYPE]))->build();
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     public function buildQuote(): QuoteTransfer
     {
         return (new QuoteBuilder())->build()
@@ -183,11 +156,6 @@ class ShipmentsRestApiBusinessTester extends Actor
             ->addItem((new ItemBuilder())->build());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentMethodTransfer $shipmentMethodTransfer
-     *
-     * @return void
-     */
     public function assertSameShipmentMethod(ShipmentMethodTransfer $shipmentMethodTransfer): void
     {
         $this->assertSame(static::SHIPMENT_METHOD[ShipmentMethodTransfer::ID_SHIPMENT_METHOD], $shipmentMethodTransfer->getIdShipmentMethod());

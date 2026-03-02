@@ -37,11 +37,6 @@ class ShipmentByCheckoutDataExpander implements ShipmentByCheckoutDataExpanderIn
      */
     protected $restResourceBuilder;
 
-    /**
-     * @param \Spryker\Glue\ShipmentsRestApi\Dependency\Service\ShipmentsRestApiToShipmentServiceInterface $shipmentService
-     * @param \Spryker\Glue\ShipmentsRestApi\Processor\Mapper\ShipmentMapperInterface $shipmentMapper
-     * @param \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResourceBuilderInterface $restResourceBuilder
-     */
     public function __construct(
         ShipmentsRestApiToShipmentServiceInterface $shipmentService,
         ShipmentMapperInterface $shipmentMapper,
@@ -97,13 +92,6 @@ class ShipmentByCheckoutDataExpander implements ShipmentByCheckoutDataExpanderIn
         return $mappedShipmentMethodsByHash;
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResourceInterface $resource
-     * @param \Generated\Shared\Transfer\ShipmentGroupTransfer $shipmentGroupTransfer
-     * @param \Generated\Shared\Transfer\ShipmentMethodsTransfer|null $shipmentMethodsTransfer
-     *
-     * @return void
-     */
     protected function addShipmentsResourceRelationships(
         RestResourceInterface $resource,
         ShipmentGroupTransfer $shipmentGroupTransfer,
@@ -126,11 +114,6 @@ class ShipmentByCheckoutDataExpander implements ShipmentByCheckoutDataExpanderIn
         $resource->addRelationship($shipmentsRestResource);
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResourceInterface $resource
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer|null
-     */
     protected function findQuoteTransferInPayload(RestResourceInterface $resource): ?QuoteTransfer
     {
         $restCheckoutDataTransfer = $resource->getPayload();
@@ -141,11 +124,6 @@ class ShipmentByCheckoutDataExpander implements ShipmentByCheckoutDataExpanderIn
         return $restCheckoutDataTransfer->getQuote();
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResourceInterface $resource
-     *
-     * @return \Generated\Shared\Transfer\ShipmentMethodsCollectionTransfer|null
-     */
     protected function findShipmentMethodsCollectionTransferInPayload(
         RestResourceInterface $resource
     ): ?ShipmentMethodsCollectionTransfer {

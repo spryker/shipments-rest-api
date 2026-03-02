@@ -12,10 +12,5 @@ use Spryker\Glue\GlueApplication\Rest\JsonApi\RestResourceInterface;
 
 interface OrderShipmentRestResponseBuilderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentGroupTransfer $shipmentGroupTransfer
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResourceInterface
-     */
     public function createOrderShipmentRestResource(ShipmentGroupTransfer $shipmentGroupTransfer): RestResourceInterface;
 }

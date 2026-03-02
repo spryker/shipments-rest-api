@@ -30,11 +30,6 @@ class ShipmentMethodByShipmentExpander implements ShipmentMethodByShipmentExpand
      */
     protected $shipmentMethodSorter;
 
-    /**
-     * @param \Spryker\Glue\ShipmentsRestApi\Processor\RestResponseBuilder\ShipmentMethodRestResponseBuilderInterface $shipmentMethodRestResponseBuilder
-     * @param \Spryker\Glue\ShipmentsRestApi\Processor\Mapper\ShipmentMethodMapperInterface $shipmentMethodMapper
-     * @param \Spryker\Glue\ShipmentsRestApi\Processor\Sorter\ShipmentMethodSorterInterface $shipmentMethodSorter
-     */
     public function __construct(
         ShipmentMethodRestResponseBuilderInterface $shipmentMethodRestResponseBuilder,
         ShipmentMethodMapperInterface $shipmentMethodMapper,

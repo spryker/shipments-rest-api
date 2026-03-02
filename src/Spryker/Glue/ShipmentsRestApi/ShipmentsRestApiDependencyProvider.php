@@ -36,11 +36,6 @@ class ShipmentsRestApiDependencyProvider extends AbstractBundleDependencyProvide
      */
     public const PLUGINS_REST_ADDRESS_RESPONSE_MAPPER = 'PLUGINS_REST_ADDRESS_RESPONSE_MAPPER';
 
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
     public function provideDependencies(Container $container): Container
     {
         $container = parent::provideDependencies($container);
@@ -52,11 +47,6 @@ class ShipmentsRestApiDependencyProvider extends AbstractBundleDependencyProvide
         return $container;
     }
 
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
     protected function addShipmentService(Container $container): Container
     {
         $container->set(static::SERVICE_SHIPMENT, function (Container $container) {
@@ -66,11 +56,6 @@ class ShipmentsRestApiDependencyProvider extends AbstractBundleDependencyProvide
         return $container;
     }
 
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
     protected function addShipmentAddressValidationStrategyPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_SHIPPING_ADDRESS_VALIDATION_STRATEGY, function () {
@@ -80,11 +65,6 @@ class ShipmentsRestApiDependencyProvider extends AbstractBundleDependencyProvide
         return $container;
     }
 
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
     protected function addAddressSourceCheckerPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_ADDRESS_SOURCE_CHECKER, function () {
@@ -94,11 +74,6 @@ class ShipmentsRestApiDependencyProvider extends AbstractBundleDependencyProvide
         return $container;
     }
 
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
     protected function addRestAddressResponseMapperPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_REST_ADDRESS_RESPONSE_MAPPER, function () {

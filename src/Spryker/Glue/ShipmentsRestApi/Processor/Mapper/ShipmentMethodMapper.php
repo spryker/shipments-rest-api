@@ -38,13 +38,6 @@ class ShipmentMethodMapper implements ShipmentMethodMapperInterface
         return $restShipmentMethodsAttributesTransfers;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RestCheckoutDataTransfer $restCheckoutDataTransfer
-     * @param \Generated\Shared\Transfer\RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer
-     * @param \Generated\Shared\Transfer\RestCheckoutDataResponseAttributesTransfer $restCheckoutDataResponseAttributesTransfer
-     *
-     * @return \Generated\Shared\Transfer\RestCheckoutDataResponseAttributesTransfer
-     */
     public function mapRestCheckoutDataResponseTransferToRestCheckoutDataResponseAttributesTransfer(
         RestCheckoutDataTransfer $restCheckoutDataTransfer,
         RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer,
@@ -71,12 +64,6 @@ class ShipmentMethodMapper implements ShipmentMethodMapperInterface
         return $restCheckoutDataResponseAttributesTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentMethodTransfer $shipmentMethodTransfer
-     * @param \Generated\Shared\Transfer\RestShipmentMethodTransfer $restShipmentMethodTransfer
-     *
-     * @return \Generated\Shared\Transfer\RestShipmentMethodTransfer
-     */
     protected function mapShipmentMethodTransferToRestShipmentMethodTransfer(
         ShipmentMethodTransfer $shipmentMethodTransfer,
         RestShipmentMethodTransfer $restShipmentMethodTransfer
