@@ -1,0 +1,74 @@
+resource:
+    name: OrderShipments
+    shortName: order-shipments
+
+    paginationEnabled: false
+
+    includableIn:
+        - resource: Orders
+          relationshipName: order-shipments
+
+    properties:
+        orderShipmentId:
+            type: string
+            description: 'Order shipment identifier.'
+            identifier: true
+            readable: true
+            writable: false
+            openapiContext:
+                example: '0'
+
+        itemUuids:
+            type: array
+            description: 'Order item UUIDs covered by this shipment.'
+            readable: true
+            writable: false
+            openapiContext:
+                example: ['abcd1234-5678-efgh-9012-ijkl34567890', 'bcde2345-6789-fghi-0123-jklm45678901']
+
+        methodName:
+            type: string
+            description: 'Shipment method name.'
+            readable: true
+            writable: false
+            openapiContext:
+                example: 'Standard'
+
+        carrierName:
+            type: string
+            description: 'Shipment carrier name.'
+            readable: true
+            writable: false
+            openapiContext:
+                example: 'Spryker Dummy Shipment'
+
+        requestedDeliveryDate:
+            type: string
+            description: 'Requested delivery date (Y-m-d).'
+            nullable: true
+            readable: true
+            writable: false
+            openapiContext:
+                example: '2024-02-01'
+
+        shippingAddress:
+            type: map
+            description: 'Shipping address snapshot for this shipment.'
+            nullable: true
+            readable: true
+            writable: false
+            openapiContext:
+                example:
+                    {
+                        salutation: 'Mr',
+                        firstName: 'John',
+                        lastName: 'Doe',
+                        address1: 'Julie-Wolfthorn-Strasse',
+                        address2: '1',
+                        address3: null,
+                        zipCode: '10115',
+                        city: 'Berlin',
+                        country: 'Germany',
+                        iso2Code: 'DE',
+                        phone: '+49 30 2084983050',
+                    }
