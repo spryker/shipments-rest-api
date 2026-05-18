@@ -1,0 +1,69 @@
+resource:
+    name: Shipments
+    shortName: shipments
+    description: 'Shipment groups exposed as a relationship target for `checkout-data`. Populated through `Spryker\Glue\CheckoutRestApi\Api\Storefront\Relationship\CheckoutDataShipmentsRelationshipResolver`; not addressable as a standalone endpoint.'
+
+    includableIn:
+        - resource: CheckoutData
+          relationshipName: shipments
+
+    properties:
+        shipmentsId:
+            type: string
+            identifier: true
+            readable: true
+            writable: false
+            description: 'Shipment group identifier.'
+            openapiContext:
+                example: '5'
+
+        items:
+            type: array
+            readable: true
+            writable: false
+            description: 'Item group keys belonging to this shipment group.'
+            openapiContext:
+                example:
+                    - 'c4ca4238a0b923820dcc509a6f75849b'
+
+        selectedShipmentMethod:
+            type: array
+            readable: true
+            writable: false
+            description: 'Selected shipment method for this shipment group.'
+            openapiContext:
+                example:
+                    id: 1
+                    name: 'Standard'
+                    carrierName: 'Spryker Dummy Shipment'
+                    price: 490
+                    taxRate: 19
+                    shipmentType: 'delivery'
+                    currencyIsoCode: 'EUR'
+
+        shippingAddress:
+            type: array
+            nullable: true
+            readable: true
+            writable: false
+            description: 'Shipping address used for this shipment group.'
+            openapiContext:
+                example:
+                    salutation: 'Mr'
+                    firstName: 'John'
+                    lastName: 'Doe'
+                    address1: 'Main Street'
+                    address2: '1'
+                    zipCode: '10115'
+                    city: 'Berlin'
+                    iso2Code: 'DE'
+                    phone: '+49 30 123456'
+
+        requestedDeliveryDate:
+            type: string
+            nullable: true
+            readable: true
+            writable: false
+            description: 'Requested delivery date for this shipment group.'
+            openapiContext:
+                example: '2026-05-20'

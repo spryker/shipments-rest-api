@@ -1,0 +1,70 @@
+resource:
+    name: ShipmentMethods
+    shortName: shipment-methods
+    description: 'Available shipment methods exposed as a relationship target for `checkout-data`. Populated through `Spryker\Glue\CheckoutRestApi\Api\Storefront\Relationship\CheckoutDataShipmentMethodsRelationshipResolver`; not addressable as a standalone endpoint.'
+
+    includableIn:
+        - resource: CheckoutData
+          relationshipName: shipment-methods
+
+    properties:
+        idShipmentMethod:
+            type: string
+            identifier: true
+            readable: true
+            writable: false
+            description: 'Shipment method identifier.'
+            openapiContext:
+                example: '5'
+
+        name:
+            type: string
+            readable: true
+            writable: false
+            description: 'Name of the shipment method.'
+            openapiContext:
+                example: 'Standard'
+
+        carrierName:
+            type: string
+            readable: true
+            writable: false
+            description: 'Name of the shipment carrier.'
+            openapiContext:
+                example: 'Spryker Dummy Shipment'
+
+        price:
+            type: integer
+            nullable: true
+            readable: true
+            writable: false
+            description: 'Price of the shipment method in cents.'
+            openapiContext:
+                example: 490
+
+        taxRate:
+            type: number
+            nullable: true
+            readable: true
+            writable: false
+            description: 'Tax rate of the shipment method.'
+            openapiContext:
+                example: 19
+
+        deliveryTime:
+            type: integer
+            nullable: true
+            readable: true
+            writable: false
+            description: 'Estimated delivery time in days.'
+            openapiContext:
+                example: 3
+
+        currencyIsoCode:
+            type: string
+            nullable: true
+            readable: true
+            writable: false
+            description: 'Currency ISO code for the price.'
+            openapiContext:
+                example: 'EUR'
