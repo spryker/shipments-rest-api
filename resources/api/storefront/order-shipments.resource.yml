@@ -4,10 +4,6 @@ resource:
 
     paginationEnabled: false
 
-    includableIn:
-        - resource: Orders
-          relationshipName: order-shipments
-
     properties:
         orderShipmentId:
             type: string

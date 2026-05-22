@@ -3,10 +3,6 @@ resource:
     shortName: shipments
     description: 'Shipment groups exposed as a relationship target for `checkout-data`. Populated through `Spryker\Glue\CheckoutRestApi\Api\Storefront\Relationship\CheckoutDataShipmentsRelationshipResolver`; not addressable as a standalone endpoint.'
 
-    includableIn:
-        - resource: CheckoutData
-          relationshipName: shipments
-
     properties:
         shipmentsId:
             type: string
