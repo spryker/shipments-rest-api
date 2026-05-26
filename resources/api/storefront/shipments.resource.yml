@@ -3,6 +3,11 @@ resource:
     shortName: shipments
     description: 'Shipment groups exposed as a relationship target for `checkout-data`. Populated through `Spryker\Glue\CheckoutRestApi\Api\Storefront\Relationship\CheckoutDataShipmentsRelationshipResolver`; not addressable as a standalone endpoint.'
 
+    includes:
+        - relationshipName: shipment-methods
+          targetResource: ShipmentMethods
+          resolverClass: Spryker\Glue\ShipmentsRestApi\Api\Storefront\Relationship\ShipmentMethodsByShipmentRelationshipResolver
+
     properties:
         shipmentsId:
             type: string
@@ -63,3 +68,25 @@ resource:
             description: 'Requested delivery date for this shipment group.'
             openapiContext:
                 example: '2026-05-20'
+
+        context:
+            type: array
+            writable: false
+            readable: false
+            required: false
+            description: 'Internal shipment group context (serialized `ShipmentGroupTransfer`); consumed by `ShipmentMethodsByShipmentRelationshipResolver`. Not serialized.'
+            openapiContext:
+                example:
+                    shipment:
+                        method:
+                            idShipmentMethod: 5
+                            name: 'Standard'
+                    availableShipmentMethods:
+                        methods:
+                            - idShipmentMethod: 5
+                              name: 'Standard'
+                              carrierName: 'Spryker Dummy Shipment'
+                              storeCurrencyPrice: 490
+                              taxRate: 19
+                              deliveryTime: 3
+                              currencyIsoCode: 'EUR'

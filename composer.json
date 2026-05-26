@@ -25,7 +25,7 @@
         "spryker/testify": "*"
     },
     "suggest": {
-        "spryker/api-platform": "Required to expose API Platform resources."
+        "spryker/api-platform": "Required when the API Platform want to be used"
     },
     "autoload": {
         "psr-4": {
