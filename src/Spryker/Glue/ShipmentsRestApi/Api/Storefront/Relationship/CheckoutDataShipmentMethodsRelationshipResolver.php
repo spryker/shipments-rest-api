@@ -56,6 +56,7 @@ class CheckoutDataShipmentMethodsRelationshipResolver extends AbstractRelationsh
                 'taxRate' => $shipmentMethodContext['taxRate'] ?? null,
                 'deliveryTime' => $shipmentMethodContext['deliveryTime'] ?? null,
                 'currencyIsoCode' => $shipmentMethodContext['currencyIsoCode'] ?? null,
+                'shipmentTypeUuid' => $shipmentMethodContext['shipmentType']['uuid'] ?? null,
             ],
             ShipmentMethodsStorefrontResource::class,
         );

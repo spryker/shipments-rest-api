@@ -3,6 +3,13 @@ resource:
     shortName: shipment-methods
     description: 'Available shipment methods exposed as a relationship target for `checkout-data`. Populated through `Spryker\Glue\CheckoutRestApi\Api\Storefront\Relationship\CheckoutDataShipmentMethodsRelationshipResolver`; not addressable as a standalone endpoint.'
 
+    includes:
+        - relationshipName: shipment-types
+          targetResource: ShipmentTypes
+          uriTemplate: /shipment-types/{uuid}
+          uriVariableMappings:
+              shipmentTypeUuid: uuid
+
     properties:
         idShipmentMethod:
             type: string
@@ -64,3 +71,10 @@ resource:
             description: 'Currency ISO code for the price.'
             openapiContext:
                 example: 'EUR'
+
+        shipmentTypeUuid:
+            type: string
+            nullable: true
+            readable: false
+            writable: false
+            description: 'UUID of the shipment type this method belongs to. Internal only — feeds the `shipment-types` relationship URI (/shipment-types/{uuid}), not part of the JSON:API response body.'
