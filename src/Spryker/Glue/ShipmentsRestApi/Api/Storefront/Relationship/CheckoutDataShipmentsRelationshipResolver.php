@@ -74,6 +74,7 @@ class CheckoutDataShipmentsRelationshipResolver extends AbstractRelationshipReso
         $shippingAddress = $shipment['shippingAddress'] ?? null;
         if (is_array($shippingAddress)) {
             $shippingAddress = $this->applyLegacyCompanyBusinessUnitAddressAlias($shippingAddress);
+            $shippingAddress = $this->nullifyEmptyAddressFields($shippingAddress);
         }
 
         return $this->serializer->denormalize(
@@ -101,6 +102,26 @@ class CheckoutDataShipmentsRelationshipResolver extends AbstractRelationshipReso
     {
         if (!empty($shippingAddress['companyBusinessUnitAddressUuid'])) {
             $shippingAddress['idCompanyBusinessUnitAddress'] = $shippingAddress['companyBusinessUnitAddressUuid'];
+        }
+
+        return $shippingAddress;
+    }
+
+    /**
+     * The shipment address array carries empty strings for unset optional fields (e.g. `email`,
+     * `poBox`), but the legacy contract emits them as `null`. Reduce empty strings to null so the
+     * serialized address matches the established response shape.
+     *
+     * @param array<string, mixed> $shippingAddress
+     *
+     * @return array<string, mixed>
+     */
+    protected function nullifyEmptyAddressFields(array $shippingAddress): array
+    {
+        foreach ($shippingAddress as $key => $value) {
+            if ($value === '') {
+                $shippingAddress[$key] = null;
+            }
         }
 
         return $shippingAddress;

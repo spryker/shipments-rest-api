@@ -53,5 +53,8 @@
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true
         }
+    },
+    "conflict": {
+        "spryker/api-platform": "<1.23.0"
     }
 }

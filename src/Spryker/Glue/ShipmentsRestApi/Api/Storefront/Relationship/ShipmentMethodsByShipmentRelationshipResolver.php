@@ -41,6 +41,7 @@ class ShipmentMethodsByShipmentRelationshipResolver extends AbstractRelationship
 
     /**
      * @param array<\Generated\Api\Storefront\ShipmentsStorefrontResource> $parentResources
+     * @param array<string, mixed> $context
      *
      * @return array<string, array<\Generated\Api\Storefront\ShipmentMethodsStorefrontResource>>
      */

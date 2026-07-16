@@ -46,6 +46,7 @@ class OrderShipmentsRelationshipResolver extends AbstractRelationshipResolver im
 
     /**
      * @param array<\Generated\Api\Storefront\OrdersStorefrontResource> $parentResources
+     * @param array<string, mixed> $context
      *
      * @return array<string, array<\Generated\Api\Storefront\OrderShipmentsStorefrontResource>>
      */
@@ -109,6 +110,30 @@ class OrderShipmentsRelationshipResolver extends AbstractRelationshipResolver im
         $data = $restOrderShipmentsAttributesTransfer->toArray(true, true);
         $data['orderShipmentId'] = (string)$shipmentTransfer->getIdSalesShipment();
 
+        if (is_array($data['shippingAddress'] ?? null)) {
+            $data['shippingAddress'] = $this->nullifyEmptyAddressFields($data['shippingAddress']);
+        }
+
         return $data;
+    }
+
+    /**
+     * The shipment address transfer carries empty strings for unset optional fields (e.g. `email`,
+     * `poBox`), but the legacy contract emits them as `null`. Reduce empty strings to null so the
+     * serialized address matches the established response shape.
+     *
+     * @param array<string, mixed> $address
+     *
+     * @return array<string, mixed>
+     */
+    protected function nullifyEmptyAddressFields(array $address): array
+    {
+        foreach ($address as $key => $value) {
+            if ($value === '') {
+                $address[$key] = null;
+            }
+        }
+
+        return $address;
     }
 }
