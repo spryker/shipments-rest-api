@@ -71,7 +71,7 @@ class OrderShipmentsRelationshipResolver extends AbstractRelationshipResolver im
             return [];
         }
 
-        $orderTransfer = (new OrderTransfer())->fromArray($parent->context ?? [], true);
+        $orderTransfer = (new OrderTransfer())->fromArray($parent->context, true);
 
         $resources = [];
 
