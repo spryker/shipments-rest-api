@@ -11,6 +11,7 @@ namespace Spryker\Glue\ShipmentsRestApi\Api\Storefront\Relationship;
 
 use Generated\Api\Storefront\OrderShipmentsStorefrontResource;
 use Generated\Api\Storefront\OrdersStorefrontResource;
+use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\OrderTransfer;
 use Generated\Shared\Transfer\RestOrderShipmentsAttributesTransfer;
 use Generated\Shared\Transfer\ShipmentGroupTransfer;
@@ -75,7 +76,12 @@ class OrderShipmentsRelationshipResolver extends AbstractRelationshipResolver im
 
         $resources = [];
 
-        foreach ($this->shipmentService->groupItemsByShipment($orderTransfer->getItems()) as $shipmentGroupTransfer) {
+        $shippedItemTransfers = array_filter(
+            $orderTransfer->getItems()->getArrayCopy(),
+            fn (ItemTransfer $itemTransfer): bool => $itemTransfer->getShipment() !== null,
+        );
+
+        foreach ($this->shipmentService->groupItemsByShipment($shippedItemTransfers) as $shipmentGroupTransfer) {
             $resources[] = $this->serializer->denormalize(
                 $this->prepareShipmentGroupResourceData($shipmentGroupTransfer),
                 OrderShipmentsStorefrontResource::class,
