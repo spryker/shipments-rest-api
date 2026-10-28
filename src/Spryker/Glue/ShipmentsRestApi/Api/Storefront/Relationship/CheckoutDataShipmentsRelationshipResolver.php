@@ -17,6 +17,12 @@ class CheckoutDataShipmentsRelationshipResolver extends AbstractRelationshipReso
 {
     protected const string RELATIONSHIP_DATA_PROPERTY = 'shipmentGroupContexts';
 
+    protected const string KEY_COUNTRY = 'country';
+
+    protected const string KEY_COUNTRY_NAME = 'name';
+
+    protected const string KEY_ISO2_CODE = 'iso2Code';
+
     public function __construct(
         protected SerializerServiceInterface $serializer,
     ) {
@@ -74,6 +80,7 @@ class CheckoutDataShipmentsRelationshipResolver extends AbstractRelationshipReso
         $shippingAddress = $shipment['shippingAddress'] ?? null;
         if (is_array($shippingAddress)) {
             $shippingAddress = $this->applyLegacyCompanyBusinessUnitAddressAlias($shippingAddress);
+            $shippingAddress = $this->flattenCountry($shippingAddress);
             $shippingAddress = $this->nullifyEmptyAddressFields($shippingAddress);
         }
 
@@ -103,6 +110,25 @@ class CheckoutDataShipmentsRelationshipResolver extends AbstractRelationshipReso
         if (!empty($shippingAddress['companyBusinessUnitAddressUuid'])) {
             $shippingAddress['idCompanyBusinessUnitAddress'] = $shippingAddress['companyBusinessUnitAddressUuid'];
         }
+
+        return $shippingAddress;
+    }
+
+    /**
+     * @param array<string, mixed> $shippingAddress
+     *
+     * @return array<string, mixed>
+     */
+    protected function flattenCountry(array $shippingAddress): array
+    {
+        $country = $shippingAddress[static::KEY_COUNTRY] ?? null;
+
+        if (!is_array($country)) {
+            return $shippingAddress;
+        }
+
+        $shippingAddress[static::KEY_COUNTRY] = $country[static::KEY_COUNTRY_NAME] ?? null;
+        $shippingAddress[static::KEY_ISO2_CODE] ??= $country[static::KEY_ISO2_CODE] ?? null;
 
         return $shippingAddress;
     }
